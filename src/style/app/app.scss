@@ -6,31 +6,9 @@ html,body{
   height: 100%;
 }
 
-.m-nav{
-  background-color: #404654;
-}
-
 .g-mn{
   height: 100%;
   background-color: #292d38;
-}
-
-.m-hd .u-name{
-  float: left;
-  padding: 0 30px;
-  width: 200px;
-}
-
-.m-hd .u-user{
-  float: right;
-}
-
-.m-nav-s{
-  padding: 20px;
-  width: 100%;
-  height: 30px;
-  background-color: #E9EEF3;
-  box-sizing: border-box;
 }
 
 .g-main{
@@ -42,10 +20,9 @@ html,body{
   box-sizing: border-box;
 }
 
-.g-ft{
-  color: #fff;
+.m-nav .el-menu li{
+  width: 200px;
 }
-
 .el-header, .el-footer {
   color: #fff;
   line-height: 60px;
@@ -58,11 +35,11 @@ html,body{
   line-height: 50px;
   background-color: #292d38;
 }
-.el-aside {
+.el-aside{
   color: #333;
   line-height: 200px;
 }
-.el-main {
+.el-main{
   background-color: #E9EEF3;
   color: #333;
 }

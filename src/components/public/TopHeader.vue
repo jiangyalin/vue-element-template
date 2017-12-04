@@ -56,7 +56,7 @@
     created: function () {
       let active = ''
       const path = this.$route.path
-      this.navData.forEach(function (result) {
+      this.navData.forEach((result) => {
         if (path.indexOf(result.path) !== -1) {
           active = result.index
         }

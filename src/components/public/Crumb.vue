@@ -17,10 +17,8 @@
     components: {},
     methods: {},
     created: function () {
-//      console.log('ttt', this.crumbs)
     },
     updated: function () {
-
     }
   }
 </script>

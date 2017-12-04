@@ -81,8 +81,8 @@
           index: ''
         }
         crumb.push(node1)
-        this.navData.forEach(function (data) {
-          data.node.forEach(function (result) {
+        this.navData.forEach((data) => {
+          data.node.forEach((result) => {
             if (result.index === index) {
               const node2 = {
                 text: data.text,
@@ -104,13 +104,13 @@
         this.$emit('navDataTransfer', crumb)
       }
     },
-    beforeCreate: function () {},
+    beforeCreate: () => {},
     created: function () {
       // 初始化激活
       let active = ''
       const path = this.$route.path
-      this.navData.forEach(function (result) {
-        result.node.forEach(function (result) {
+      this.navData.forEach((result) => {
+        result.node.forEach((result) => {
           if (path.indexOf(result.path) !== -1) {
             active = result.index
           }
@@ -127,8 +127,8 @@
         index: ''
       }
       crumb.push(node1)
-      this.navData.forEach(function (data) {
-        data.node.forEach(function (result) {
+      this.navData.forEach((data) => {
+        data.node.forEach((result) => {
           if (result.index === active) {
             const node2 = {
               text: data.text,

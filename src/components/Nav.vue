@@ -225,7 +225,6 @@
     components: {},
     computed: {
       openNav () {
-        console.log('zzz', this.nav.active)
         return this.nav.active
       }
     },
@@ -241,9 +240,9 @@
       $route (e) {
         let name = ''
         let index = ''
-        this.navData.forEach(function (result) {
-          result.node.forEach(function (result) {
-            result.node.forEach(function (result) {
+        this.navData.forEach((result) => {
+          result.node.forEach((result) => {
+            result.node.forEach((result) => {
               if (result.name === e.name) {
                 name = result.name
                 index = result.index

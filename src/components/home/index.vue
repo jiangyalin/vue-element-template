@@ -43,7 +43,7 @@
       crumb: Crumb
     },
     methods: {
-      getNavData: function (msg) {
+      getNavData: (msg) => {
         this.crumb = msg
       }
     }

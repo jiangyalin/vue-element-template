@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {
     name: 'nav',
     data () {

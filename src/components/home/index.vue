@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import TopHeader from './../public/TopHeader.vue'
   import Nav from './Nav.vue'
   import Crumb from './../public/Crumb.vue'

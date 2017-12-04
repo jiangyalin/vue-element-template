@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   const cityOptions = ['上海', '北京', '广州', '深圳']
   export default {
     data () {

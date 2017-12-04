@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {
     name: 'nav',
     data () {
@@ -231,9 +231,9 @@
       $route (e) {
         let name = ''
         let index = ''
-        this.navData.forEach(function (result) {
-          result.node.forEach(function (result) {
-            result.node.forEach(function (result) {
+        this.navData.forEach((result) => {
+          result.node.forEach((result) => {
+            result.node.forEach((result) => {
               if (result.name === e.name) {
                 name = result.name
                 index = result.index

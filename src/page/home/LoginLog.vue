@@ -20,13 +20,23 @@
       </el-table-column>
     </el-table>
     <el-pagination class="m-page" small layout="prev, pager, next" :total="500"></el-pagination>
+    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+    <div style="margin: 15px 0;"></div>
+    <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+      <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+    </el-checkbox-group>
   </div>
 </template>
 
 <script>
+  const cityOptions = ['上海', '北京', '广州', '深圳']
   export default {
     data () {
       return {
+        checkAll: false,
+        checkedCities: ['上海', '北京'],
+        cities: cityOptions,
+        isIndeterminate: true,
         tableData: [{
           date: '2017-07-03 14:36:21',
           ip: '183.14.135.1',
@@ -89,6 +99,20 @@
           liu: 'Firefox 45'
         }],
         loading: false
+      }
+    },
+    methods: {
+      toggleSelection(rows) {
+        if (rows) {
+          rows.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row)
+        })
+        } else {
+          this.$refs.multipleTable.clearSelection();
+        }
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
       }
     }
   }

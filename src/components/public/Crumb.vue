@@ -1,9 +1,8 @@
 <template>
   <div class="m-nav-s">
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">{{crumb.nav1.text}}</el-breadcrumb-item>
-      <el-breadcrumb-item>{{crumb.nav2.text}}</el-breadcrumb-item>
-      <el-breadcrumb-item>{{crumb.nav3.text}}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="data in crumbs" :key="data.index">{{data.text}}</el-breadcrumb-item>
+      <!--<p @click="click">d</p>-->
     </el-breadcrumb>
   </div>
 </template>
@@ -12,22 +11,17 @@
   export default {
     name: 'crumb',
     data () {
-      return {
-        crumb: {
-          nav1: {
-            text: '后台首页'
-          },
-          nav2: {
-            text: '首页'
-          },
-          nav3: {
-            text: '系统首页'
-          }
-        }
-      }
+      return {}
     },
+    props: ['crumbs'],
     components: {},
-    methods: {}
+    methods: {},
+    created: function () {
+//      console.log('ttt', this.crumbs)
+    },
+    updated: function () {
+
+    }
   }
 </script>
 

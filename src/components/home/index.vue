@@ -6,10 +6,10 @@
       </el-header>
       <el-container>
         <el-aside width="200px">
-          <navs></navs>
+          <navs @navDataTransfer="getNavData"></navs>
         </el-aside>
         <el-container direction="vertical">
-          <crumb></crumb>
+          <crumb :crumbs="crumb"></crumb>
           <el-main>
             <div class="g-main">
               <router-view/>
@@ -29,6 +29,12 @@
     name: 'app',
     data () {
       return {
+        crumb: [{
+          text: '后台首页',
+          name: '',
+          path: '',
+          index: '0'
+        }]
       }
     },
     components: {
@@ -37,6 +43,9 @@
       crumb: Crumb
     },
     methods: {
+      getNavData: function (msg) {
+        this.crumb = msg
+      }
     }
   }
 </script>

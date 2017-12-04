@@ -25,6 +25,7 @@
     data () {
       return {
         nav: {
+          text: '首页',
           name: 'Home',
           active: '1-1',
           uniqueOpened: true
@@ -33,22 +34,28 @@
           text: '系统首页',
           name: 'Home',
           path: '/home',
-          index: '1-1'
-        }, {
-          text: '账户设置',
-          name: 'app',
-          path: '/userSet',
-          index: '1-2'
-        }, {
-          text: '系统信息',
-          name: 'app',
-          path: '/systemMessage',
-          index: '1-3'
-        }, {
-          text: '登录日志',
-          name: 'app',
-          path: '/loginLog',
-          index: '1-4'
+          index: '1-1',
+          node: [{
+            text: '系统首页',
+            name: 'Home',
+            path: '/home',
+            index: '1-1'
+          }, {
+            text: '账户设置',
+            name: 'app',
+            path: '/userSet',
+            index: '1-2'
+          }, {
+            text: '系统信息',
+            name: 'app',
+            path: '/systemMessage',
+            index: '1-3'
+          }, {
+            text: '登录日志',
+            name: 'app',
+            path: '/loginLog',
+            index: '1-4'
+          }]
         }]
       }
     },
@@ -60,20 +67,87 @@
     },
     methods: {
       to (event, index) {
+        // 跳转激活
         const path = event.$attrs['data-to']
         this.$router.push(path)
         this.activeIndex = index
+
+        // 计算面包屑导航
+        let crumb = []
+        const node1 = {
+          text: '后台首页',
+          name: '',
+          path: '',
+          index: ''
+        }
+        crumb.push(node1)
+        this.navData.forEach(function (data) {
+          data.node.forEach(function (result) {
+            if (result.index === index) {
+              const node2 = {
+                text: data.text,
+                name: data.name,
+                path: data.path,
+                index: data.index
+              }
+              const node3 = {
+                text: result.text,
+                name: result.name,
+                path: result.path,
+                index: result.index
+              }
+              crumb.push(node2)
+              crumb.push(node3)
+            }
+          })
+        })
+        this.$emit('navDataTransfer', crumb)
       }
     },
+    beforeCreate: function () {},
     created: function () {
+      // 初始化激活
       let active = ''
       const path = this.$route.path
       this.navData.forEach(function (result) {
-        if (path.indexOf(result.path) !== -1) {
-          active = result.index
-        }
+        result.node.forEach(function (result) {
+          if (path.indexOf(result.path) !== -1) {
+            active = result.index
+          }
+        })
       })
       this.nav.active = active
+
+      // 计算面包屑导航
+      let crumb = []
+      const node1 = {
+        text: '后台首页',
+        name: '',
+        path: '',
+        index: ''
+      }
+      crumb.push(node1)
+      this.navData.forEach(function (data) {
+        data.node.forEach(function (result) {
+          if (result.index === active) {
+            const node2 = {
+              text: data.text,
+              name: data.name,
+              path: data.path,
+              index: data.index
+            }
+            const node3 = {
+              text: result.text,
+              name: result.name,
+              path: result.path,
+              index: result.index
+            }
+            crumb.push(node2)
+            crumb.push(node3)
+          }
+        })
+      })
+      this.$emit('navDataTransfer', crumb)
     }
   }
 </script>

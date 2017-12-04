@@ -3,16 +3,6 @@
     <el-row class="tac">
       <el-col :span="24">
         <el-menu :default-active="openNav" class="el-menu-vertical-demo" :unique-opened="nav.uniqueOpened" @open="handleOpen" @close="handleClose" background-color="#404654" text-color="#fff" active-text-color="#ffd04b">
-          <el-submenu index="1" ref="home">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>首页</span>
-            </template>
-            <el-menu-item index="1-1">系统首页</el-menu-item>
-            <el-menu-item index="1-2">账户设置</el-menu-item>
-            <el-menu-item index="1-3">系统信息</el-menu-item>
-            <el-menu-item index="1-4">登录日志</el-menu-item>
-          </el-submenu>
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -50,7 +40,7 @@
       return {
         nav: {
           name: 'Home',
-          active: '1-1',
+          active: '2-1',
           uniqueOpened: true
         },
         navData: [{
@@ -65,12 +55,12 @@
             node: [{
               text: '系统首页',
               name: 'Home',
-              path: '/',
+              path: '/home',
               index: '1-1'
             }, {
               text: '账户设置',
               name: 'app',
-              path: '/',
+              path: '/userSet',
               index: '1-2'
             }, {
               text: '系统信息',
@@ -80,7 +70,7 @@
             }, {
               text: '登录日志',
               name: 'app',
-              path: '/',
+              path: '/loginLog',
               index: '1-4'
             }]
           }]
@@ -225,16 +215,16 @@
     components: {},
     computed: {
       openNav () {
-        console.log('zzz', this.nav.active)
+//        console.log('zzz', this.nav.active)
         return this.nav.active
       }
     },
     methods: {
       handleOpen (name, keyPath) {
-        console.log(name, keyPath)
+//        console.log(name, keyPath)
       },
       handleClose (name, keyPath) {
-        console.log(name, keyPath)
+//        console.log(name, keyPath)
       }
     },
     watch: { // 监听路由

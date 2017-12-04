@@ -1,25 +1,6 @@
 <template>
   <div>
-    <div class="m-menu">
-      <el-button type="primary" icon="el-icon-edit"></el-button>
-      <el-button type="primary" icon="el-icon-share"></el-button>
-      <el-button type="primary" icon="el-icon-delete"></el-button>
-      <el-button type="primary" icon="el-icon-search">搜索</el-button>
-      <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
-    </div>
-    <el-table v-loading="loading" :data="tableData" stripe border style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column fixed="right" label="操作" width="100">
-        <template slot-scope="scope">
-          <el-button type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <router-view/>
-    <el-pagination class="m-page" small layout="prev, pager, next" :total="500"></el-pagination>
+    这是首页
   </div>
 </template>
 

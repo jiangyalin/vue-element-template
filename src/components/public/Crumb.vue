@@ -2,7 +2,6 @@
   <div class="m-nav-s">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item v-for="data in crumbs" :key="data.index">{{data.text}}</el-breadcrumb-item>
-      <!--<p @click="click">d</p>-->
     </el-breadcrumb>
   </div>
 </template>

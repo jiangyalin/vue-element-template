@@ -43,7 +43,14 @@
       crumb: Crumb
     },
     methods: {
-      getNavData: (msg) => {
+      getNavData: function (msg) {
+        this.$http.get('http://localhost:8083/bb/nav')
+          .then(function (response) {
+            console.log('sds', response.data)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
         this.crumb = msg
       }
     }

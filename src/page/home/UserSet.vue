@@ -68,7 +68,8 @@
         rules: {
           name: [
             { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 3, max: 13, message: '长度在 3 到 13 个字符', trigger: 'blur' },
+            { pattern: /^1[34578]\d{9}$/, message: '目前只支持中国大陆的手机号码' }
           ],
           region: [
             { required: true, message: '请选择活动区域', trigger: 'change' }
@@ -95,7 +96,20 @@
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!')
+            const data = this.ruleForm
+            this.$http.get('http://localhost:8083/bb/nav/get', {params: data})
+              .then(function (response) {
+                console.log('sds', response.data)
+              }).catch(function (error) {
+                console.log(error)
+              })
+            this.$http.post('http://localhost:8083/bb/nav/post', data)
+              .then(function (response) {
+                console.log('sds', response.data)
+              })
+              .catch(function (error) {
+                console.log(error)
+              })
           } else {
             console.log('error submit!!')
             return false

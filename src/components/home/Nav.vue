@@ -5,7 +5,7 @@
         <el-menu :default-active="openNav" class="el-menu-vertical-demo" :unique-opened="nav.uniqueOpened" background-color="#404654" text-color="#fff" active-text-color="#ffd04b">
           <el-submenu index="1" ref="home">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-setting"></i>
               <span>首页</span>
             </template>
             <el-menu-item index="1-1" @click="to($event, '1-1')" data-to="/home/home">系统首页</el-menu-item>

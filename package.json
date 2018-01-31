@@ -19,6 +19,7 @@
     "font-awesome": "^4.7.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
+    "vue-i18n": "^5.0.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -51,7 +52,13 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "jasmine": "^2.9.0",
+    "jasmine-core": "^2.9.1",
     "jest": "^21.2.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.1",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",

@@ -52,6 +52,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import Vue from 'vue'
   export default {
     data () {
       return {
@@ -93,28 +94,10 @@
       }
     },
     methods: {
-      submitForm (formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            const data = this.ruleForm
-            this.$http.get('http://localhost:8083/bb/nav/get', {params: data})
-              .then(function (response) {
-                console.log('sds', response.data)
-              }).catch(function (error) {
-                console.log(error)
-              })
-            this.$http.post('http://localhost:8083/bb/nav/post', data)
-              .then(function (response) {
-                console.log('sds', response.data)
-              })
-              .catch(function (error) {
-                console.log(error)
-              })
-          } else {
-            console.log('error submit!!')
-            return false
-          }
-        })
+      submitForm () {
+        console.log('this.locale', this.locale)
+        Vue.config.lang = 'en'
+        console.log('Vue.config', Vue.config)
       },
       resetForm (formName) {
         this.$refs[formName].resetFields()

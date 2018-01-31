@@ -127,6 +127,9 @@
     },
     methods: {
       onSubmit () {
+        console.log('d', this)
+//        this.$i18n.locale = this.searchkey.lang
+        this.$lang = 'en'
         console.log('submit!')
       },
       toggleSelection (rows) {
